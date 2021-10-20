@@ -1,0 +1,14 @@
+spring:
+  r2dbc:
+    username: user
+    password: password
+    url: r2dbc:postgresql://localhost:5432/bookshop_order
+    properties:
+      schema: orders
+  flyway:
+    user: ${spring.r2dbc.username}
+    password: ${spring.r2dbc.password}
+    url: jdbc:postgresql://localhost:5432/bookshop_order
+    schemas: orders
+bookshop:
+  catalog-service-url: "http://localhost:9001"

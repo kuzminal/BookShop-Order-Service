@@ -46,6 +46,11 @@ dependencyManagement {
     }
 }
 
+bootBuildImage {
+    imageName = "kuzmin35/${project.name}:${project.version}"
+    environment = ["BP_JVM_VERSION" : "17.*"]
+}
+
 test {
     useJUnitPlatform()
 }

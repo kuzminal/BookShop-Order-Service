@@ -1,0 +1,23 @@
+apiVersion: skaffold/v2beta24
+kind: Config
+metadata:
+  name: order-service
+build:
+  artifacts:
+  - image: kuzmin35/order-service
+    buildpacks:
+      builder: gcr.io/buildpacks/builder:v1
+deploy:
+  helm:
+    releases:
+      - name: order-service
+        remoteChart: bitnami/postgresql
+        setValues:
+          postgresqlUsername: user
+          postgresqlPassword: password
+          postgresqlDatabase: bookshop_order
+          image.tag: 13
+  kubectl:
+    manifests:
+    - k8s/deployment.yml
+    - k8s/service.yml

@@ -1,0 +1,14 @@
+spring:
+  r2dbc:
+    username: ${POSTGRESQL_USERNAME}
+    password: ${POSTGRESQL_PASSWORD}
+    url: ${POSTGRESQL_R2DBC_URL}
+    properties:
+      schema: ${POSTGRESQL_SCHEMA}
+  flyway:
+    user: ${spring.r2dbc.username}
+    password: ${spring.r2dbc.password}
+    url: ${POSTGRESQL_JDBC_URL}
+    schemas: ${POSTGRESQL_SCHEMA}
+bookshop:
+  catalog-service-url: ${CATALOG_SERVICE_URL}

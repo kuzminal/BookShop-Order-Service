@@ -1,0 +1,18 @@
+syntax = "proto3";
+package bookcatalogue;
+
+service BookCatalogue {
+    rpc getBook(BookIsbn) returns (Book);
+}
+message Book {
+    string isbn = 1;
+    string title = 2;
+    string author = 3;
+    int32 publishingYear = 4;
+    double price = 5;
+    int32 quantity = 6;
+}
+
+message BookIsbn {
+    string isbn = 1;
+}

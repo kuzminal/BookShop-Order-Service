@@ -1,0 +1,20 @@
+{
+  "methodConfig": [
+    {
+      "name": [
+        {
+          "service": "bookcatalogue.BookCatalogue"
+        }
+      ],
+      "retryPolicy": {
+        "maxAttempts": 10.0,
+        "initialBackoff": "2s",
+        "maxBackoff": "30s",
+        "backoffMultiplier": 2.0,
+        "retryableStatusCodes": [
+          "UNAVAILABLE"
+        ]
+      }
+    }
+  ]
+}
